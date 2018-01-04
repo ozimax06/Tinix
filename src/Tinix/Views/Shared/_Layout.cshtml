@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>@ApplicationContext.Title</title>
+
+    <meta name="keywords" content=".net,C#, csharp,books,development,games,opinion,Shopkeeper platform,stuff,tools, Marius Gheorghe"/>
+    <meta name="author" content="@ApplicationContext.Title"/>
+    <meta name="copyright" content="@ApplicationContext.Title"/>
+    <link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body>
+
+@Html.Partial("_Header")
+
+<br/>
+<br/>
+
+
+<div class="container">
+    @RenderBody()
+</div>
+
+@Html.Partial("_Footer")
+
+
+<link rel="stylesheet" href="/css/bootstrap.min.css"/>
+<link rel="stylesheet" href="/css/site.css"/>
+
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script async="" type="text/javascript" src="/js/popper.min.js"></script>
+<script async="" type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+</body>
+</html>

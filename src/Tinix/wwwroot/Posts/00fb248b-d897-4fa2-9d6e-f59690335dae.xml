@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<post>
+  <author>Admin</author>
+  <title>Test blog post</title>
+  <description />
+  <content>Test blog post</content>
+  <ispublished>True</ispublished>
+  <isdeleted>False</isdeleted>
+  <iscommentsenabled>True</iscommentsenabled>
+  <pubDate>2012-10-15 17:06:00</pubDate>
+  <lastModified>2015-01-14 00:20:20</lastModified>
+  <raters>0</raters>
+  <rating>0</rating>
+  <slug>Test</slug>
+</post>

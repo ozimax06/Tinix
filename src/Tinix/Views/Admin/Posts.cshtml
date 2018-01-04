@@ -1,0 +1,74 @@
+@using  Tinix.Context
+@model AdminViewModel
+@{
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+
+    int index = 0;
+}
+
+
+<script type="text/javascript" src="/js/admin.js"></script>
+<script type="text/javascript" src="/js/tinymce.min.js"></script>
+<script type="text/javascript" src="/js/popper.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+
+<a style="float:right" id="linkLogOff" class="btn btn-warning">Log off</a>
+
+
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link " href="@Url.Action("NewPost")">New Post</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Posts</a>
+    </li>
+</ul>
+
+
+
+
+<div class="row">
+    <div class="col-12">
+
+        <br />
+
+        <h3 class="text-center">Posts</h3>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Post Name</th>
+                    <th scope="col">Published Date</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (BlogPost item in Model.Items)
+                {
+                    ++index;
+                    <tr>
+                        <td>
+                            @index
+                        </td>
+                        <td>
+                            @item.Title
+                        </td>
+                        <td>
+                            @item.PubDate.ToShortDateString()
+                        </td>
+                        <td>
+                            <button data-id="@item.ID" class="deleteButton btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<form method="post" id="formDelete"  action="@Url.Action("Delete","Admin")" >
+    <input type="hidden" id="fieldDelete" name="postId" />
+</form>

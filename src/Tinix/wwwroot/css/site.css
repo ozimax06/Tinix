@@ -1,0 +1,70 @@
+﻿
+body
+{
+	background-color:#EEEEEE;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	font-size: 18px;
+}
+
+.header
+{
+	background-color:white;
+}
+
+.title
+{
+	color: #0080ff;
+}
+
+.postContainer
+{
+	background-color: white;
+	border-radius: 15px;
+	padding: 15px;
+	border: solid lightgrey 1px;
+}
+
+
+footer
+{
+	/*background-color:black;
+	color:white;*/
+	color: black;
+	height:40px;
+}
+
+
+.leftColumn
+{
+	min-height: 100%;
+	background-color: #22313F;
+	color: white;
+	padding-left: 20px;
+	padding-right: 20px;
+	
+}
+
+
+.leftColumn a
+{
+	color: white;
+	text-decoration: underline;
+}
+
+
+.adminImage 
+{
+	border-radius: 25px;
+}
+
+
+.backButton 
+{
+	border-radius: 10px;
+}
+
+
+.nextButton {
+	border-radius: 10px;
+}

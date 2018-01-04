@@ -1,0 +1,48 @@
+@using Tinix.Context
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ApplicationContext.Title</title>
+    <meta name="keywords" content="" />
+    <meta name="author" content="@ApplicationContext.Title" />
+    <meta name="copyright" content="@ApplicationContext.Title" />
+    <link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body>
+
+    <div class="container-fluid">
+
+
+        <div class="row">
+            <div class="col-md-2 leftColumn" id="leftsidebar">
+                @Html.Partial("_PersonalSidebar")
+            </div>
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-8 col-12">
+                <br />
+                @RenderBody()
+                <br />
+                <br />
+                @Html.Partial("_Footer")
+            </div>
+            <div class="col-md-1">
+            </div>
+        </div>
+    </div>
+
+<link rel="stylesheet" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" href="/css/site.css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script async="" type="text/javascript" src="/js/popper.min.js"></script>
+<script async="" type="text/javascript" src="/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $("#leftsidebar").height($(document).height());
+    });
+
+</script>
+</body>
+</html>

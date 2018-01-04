@@ -1,0 +1,28 @@
+﻿@using Tinix.Context
+@model BlogViewModel
+
+
+<div class="row">
+    <div class="col-4 text-left">
+        @if (Model.PageIndex > 1)
+            {
+            <a href="@Url.Action("Index", "Home", new { @index = @Model.PageIndex - 1 })" class="btn btn-secondary">
+                Back
+            </a>
+        }
+    </div>
+
+    <div class="col-4 text-center">
+        Page @Model.PageIndex / @Model.TotalPages
+    </div>
+
+    <div class="col-4 text-right">
+        @if (Model.HasMorePages)
+        {
+            <a href="@Url.Action("Index", "Home", new { @index = @Model.PageIndex + 1 })" class="btn btn-primary nextButton">
+                Next
+            </a>
+        }
+    </div>
+
+</div>

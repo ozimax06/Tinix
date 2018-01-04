@@ -1,0 +1,12 @@
+﻿@using Tinix.Context
+@model BlogViewModel
+
+
+@foreach (BlogPost item in Model.Items)
+{
+    @Html.Partial("_Post", item);
+}
+
+<br />
+
+@Html.Partial("_Pager")

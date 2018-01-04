@@ -1,0 +1,42 @@
+@using Tinix.Context
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ApplicationContext.Title</title>
+    <meta name="keywords" content="" />
+    <meta name="author" content="@ApplicationContext.Title" />
+    <meta name="copyright" content="@ApplicationContext.Title" />
+    <link rel="shortcut icon" href="/favicon.ico">
+</head>
+<body>
+
+    @Html.Partial("_Header")
+
+    <div class="row">
+        <div class="col-1">
+        </div>
+        <div class="col-10">
+
+
+            <div class="row">
+                <div class="col-9">
+                    <br />
+                    @RenderBody()
+                </div>
+                <div class="col-2 offset-1">
+                    @Html.Partial("_PersonalSidebar")
+                </div>
+            </div>
+        </div>
+        <div class="col-1">
+        </div>
+    </div>
+
+    @Html.Partial("_Footer")
+    <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/site.css" />
+    <script type="text/javascript" src="/js/jquery.js"></script>
+</body>
+</html>
