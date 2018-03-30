@@ -10,9 +10,11 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 
 namespace Tinix.Context
+
 {
     public class FileBlogService : IBlog
     {
+        
         private const string BLOG_POSTS = "blog_cache";
 
         private IMemoryCache cache;

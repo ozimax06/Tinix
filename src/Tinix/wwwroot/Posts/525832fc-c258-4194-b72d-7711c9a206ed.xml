@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<post>
+  <title>title</title>
+  <slug></slug>
+  <pubDate>2018-03-30 15:57:59</pubDate>
+  <lastModified>2018-03-30 15:57:59</lastModified>
+  <excerpt></excerpt>
+  <content>&lt;p&gt;&lt;span style="color: #24292e; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';"&gt;hat the primary use case of&amp;nbsp;&lt;/span&gt;&lt;code style="box-sizing: border-box; font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace; font-size: 11.9px; padding: 0.2em 0.4em; margin: 0px; background-color: rgba(27, 31, 35, 0.05); border-radius: 3px; color: #24292e;"&gt;dotnet run&lt;/code&gt;&lt;span style="color: #24292e; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';"&gt;&amp;nbsp;is to run code after you've changed it, which is why it should do build and why it should also do restore if necessary. What is your use case where the performance of&amp;nbsp;&lt;/span&gt;&lt;code style="box-sizing: border-box; font-family: SFMono-Regular, Consolas, 'Liberation Mono', Menlo, Courier, monospace; font-size: 11.9px; padding: 0.2em 0.4em; margin: 0px; background-color: rgba(27, 31, 35, 0.05); border-radius: 3px; color: #24292e;"&gt;dotnet run&lt;/code&gt;&lt;span style="color: #24292e; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';"&gt;&amp;nbsp;matters, but you didn't ch&lt;/span&gt;&lt;/p&gt;</content>
+  <ispublished>true</ispublished>
+  <categories></categories>
+  <comments></comments>
+</post>

@@ -1,0 +1,13 @@
+C:\Users\ozan\Desktop\Tinix-master\src\Tinix\bin\Debug\netcoreapp2.0\Tinix.deps.json
+C:\Users\ozan\Desktop\Tinix-master\src\Tinix\bin\Debug\netcoreapp2.0\Tinix.runtimeconfig.json
+C:\Users\ozan\Desktop\Tinix-master\src\Tinix\bin\Debug\netcoreapp2.0\Tinix.runtimeconfig.dev.json
+C:\Users\ozan\Desktop\Tinix-master\src\Tinix\bin\Debug\netcoreapp2.0\Tinix.dll
+C:\Users\ozan\Desktop\Tinix-master\src\Tinix\bin\Debug\netcoreapp2.0\Tinix.pdb
+C:\Users\ozan\Desktop\Tinix-master\src\Tinix\bin\Debug\netcoreapp2.0\Tinix.Context.dll
+C:\Users\ozan\Desktop\Tinix-master\src\Tinix\bin\Debug\netcoreapp2.0\Tinix.Context.pdb
+C:\Users\ozan\Desktop\Tinix-master\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.csproj.CoreCompileInputs.cache
+C:\Users\ozan\Desktop\Tinix-master\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.AssemblyInfoInputs.cache
+C:\Users\ozan\Desktop\Tinix-master\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.AssemblyInfo.cs
+C:\Users\ozan\Desktop\Tinix-master\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.csproj.CopyComplete
+C:\Users\ozan\Desktop\Tinix-master\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.dll
+C:\Users\ozan\Desktop\Tinix-master\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.pdb

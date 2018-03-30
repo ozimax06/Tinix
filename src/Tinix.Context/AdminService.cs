@@ -2,6 +2,7 @@
 using System.Text;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 
+
 namespace Tinix.Context
 {
     public class AdminService : IAdminService
@@ -24,6 +25,8 @@ namespace Tinix.Context
             }
 
             return false;
+
+            //return true;
         }
     }
 }

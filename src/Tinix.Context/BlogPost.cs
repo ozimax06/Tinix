@@ -5,6 +5,7 @@ namespace Tinix.Context
 {
     public class BlogPost
     {
+   
         [Required]
         public string ID
         {
