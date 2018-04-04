@@ -13,16 +13,20 @@ namespace Tinix
 {
 	public class Startup
 	{
+		public IConfiguration Configuration { get; set;}
 		public Startup(IConfiguration configuration)
 		{
+		
 			Configuration = configuration;
 		}
 
-		public IConfiguration Configuration { get; }
+		
 
 		// This method gets called by the runtime. Use this method to add services to the container.
+		//get everything ready, load the stuff
 		public void ConfigureServices(IServiceCollection services)
 		{
+		
 			services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
 				.AddCookie(options =>
 				{
@@ -37,6 +41,7 @@ namespace Tinix
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+		//configure stuff
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory )
 		{
 
@@ -45,9 +50,13 @@ namespace Tinix
 
 			app.UseAuthentication();
 
+			
+
 			var builder = new ConfigurationBuilder()
 				.SetBasePath(Directory.GetCurrentDirectory())
 				.AddJsonFile("appsettings.json");
+
+		
 
 			var config = builder.Build();
 
@@ -71,7 +80,6 @@ namespace Tinix
 			{
 				app.UseExceptionHandler("/Home/Error");
 			}
-
 
 			var provider = new FileExtensionContentTypeProvider();
 			provider.Mappings.Remove(".xml");
