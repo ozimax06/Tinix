@@ -14,3 +14,11 @@ C:\Users\ondero\Desktop\dev\Tinix\src\Tinix.Context\obj\Debug\netcoreapp2.0\Tini
 C:\Users\ondero\Desktop\dev\Tinix\src\Tinix.Context\obj\Debug\netcoreapp2.0\Tinix.Context.AssemblyInfo.cs
 C:\Users\ondero\Desktop\dev\Tinix\src\Tinix.Context\obj\Debug\netcoreapp2.0\Tinix.Context.dll
 C:\Users\ondero\Desktop\dev\Tinix\src\Tinix.Context\obj\Debug\netcoreapp2.0\Tinix.Context.pdb
+C:\Users\ozan\Desktop\projects\Tinix\src\Tinix.Context\bin\Debug\netcoreapp2.0\Tinix.Context.deps.json
+C:\Users\ozan\Desktop\projects\Tinix\src\Tinix.Context\bin\Debug\netcoreapp2.0\Tinix.Context.dll
+C:\Users\ozan\Desktop\projects\Tinix\src\Tinix.Context\bin\Debug\netcoreapp2.0\Tinix.Context.pdb
+C:\Users\ozan\Desktop\projects\Tinix\src\Tinix.Context\obj\Debug\netcoreapp2.0\Tinix.Context.csproj.CoreCompileInputs.cache
+C:\Users\ozan\Desktop\projects\Tinix\src\Tinix.Context\obj\Debug\netcoreapp2.0\Tinix.Context.AssemblyInfoInputs.cache
+C:\Users\ozan\Desktop\projects\Tinix\src\Tinix.Context\obj\Debug\netcoreapp2.0\Tinix.Context.AssemblyInfo.cs
+C:\Users\ozan\Desktop\projects\Tinix\src\Tinix.Context\obj\Debug\netcoreapp2.0\Tinix.Context.dll
+C:\Users\ozan\Desktop\projects\Tinix\src\Tinix.Context\obj\Debug\netcoreapp2.0\Tinix.Context.pdb
