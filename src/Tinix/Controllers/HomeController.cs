@@ -42,6 +42,19 @@ namespace Tinix.Controllers
             return View(post);
         }
 
+        public async IActionResult Comment(string id,string name,  string comment)
+        {
+            BlogPost post = await blog.GetPostById(id);
+
+             if (post == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return Detail(id, name);
+
+        }
+
 
         public async Task<IActionResult> Index(int? index)
         {
