@@ -42,9 +42,11 @@ namespace Tinix.Controllers
             return View(post);
         }
 
-        public async IActionResult Comment(string id,string name,  string comment)
+        /*public async IActionResult Comment(string id,string name,  string comment)
         {
             BlogPost post = await blog.GetPostById(id);
+            post.comment = comment;
+            
 
              if (post == null)
             {
@@ -53,7 +55,7 @@ namespace Tinix.Controllers
 
             return Detail(id, name);
 
-        }
+        }*/
 
 
         public async Task<IActionResult> Index(int? index)

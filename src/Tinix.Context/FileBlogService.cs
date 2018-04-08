@@ -80,8 +80,7 @@ namespace Tinix.Context
                                 new XElement("excerpt", string.Empty),
                                 new XElement("content", content),
                                 new XElement("ispublished", true),
-                                new XElement("categories", string.Empty),
-                                new XElement("comments", string.Empty)
+                                new XElement("categories", string.Empty)
                             ));
 
             //XElement categories = doc.XPathSelectElement("post/categories");
