@@ -66,8 +66,21 @@ namespace Tinix.Context
 
         public async Task AddComment(string BlogPostID, string comment)
         {
-           ApplicationContext.Comm
+            XDocument doc = new XDocument(
+                            new XElement("comment",
+                                new XElement("BlogPostID", BlogPostID),
+                                new XElement("comment", comment)
+                            ));
+
+            var id = "test";
+
+            using (FileStream fs = new FileStream(ApplicationContext.CommentsFolder + @"\" + id + ".xml", FileMode.Create, FileAccess.ReadWrite))
+            {
+                await doc.SaveAsync(fs, SaveOptions.None, CancellationToken.None).ConfigureAwait(false);
+            }
+                        
         }
+
 
         public async Task SavePost(string content, string title)
         {

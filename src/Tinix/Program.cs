@@ -15,7 +15,7 @@ namespace Tinix
         public static void Main(string[] args)
         {
 
-			if(true){}
+		
 
             BuildWebHost(args).Run();
         }
