@@ -64,6 +64,11 @@ namespace Tinix.Context
             }
         }
 
+        public async Task AddComment(string BlogPostID, string comment)
+        {
+           ApplicationContext.Comm
+        }
+
         public async Task SavePost(string content, string title)
         {
 

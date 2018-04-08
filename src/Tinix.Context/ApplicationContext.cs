@@ -8,6 +8,8 @@ namespace Tinix.Context
 
         public static string PostsFolder => WebRootPath + Path.DirectorySeparatorChar + "Posts";
 
+        public static string CommentsFolder => WebRootPath + Path.DirectorySeparatorChar + "Comments";
+
         public static string WebRootPath
         {
             get;
