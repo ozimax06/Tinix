@@ -10,6 +10,7 @@ using Tinix.Models;
 using Microsoft.AspNetCore.Hosting;
 using Tinix.Context;
 using Microsoft.Extensions.Caching.Memory;
+using System.IO;
 
 
 namespace Tinix.Controllers
@@ -60,7 +61,7 @@ namespace Tinix.Controllers
 
         public async Task<IActionResult> Index(int? index)
         {
-
+     
             index = index ?? 0;
 
 

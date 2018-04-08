@@ -72,7 +72,7 @@ namespace Tinix.Context
                                 new XElement("comment", comment)
                             ));
 
-            var id = "test";
+            var id = Directory.GetFiles(ApplicationContext.CommentsFolder).Length+1;//auto increment
 
             using (FileStream fs = new FileStream(ApplicationContext.CommentsFolder + @"\" + id + ".xml", FileMode.Create, FileAccess.ReadWrite))
             {
