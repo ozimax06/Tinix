@@ -4,9 +4,16 @@
 
 @Html.Partial("_Post", @Model)
 <br/>
+
+----
+  @Html.TextBox("txtUserName")
+----
+
 <div class="form-group">
     <label for="exampleTextarea">Add comment</label>
     <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
 </div>
 <button type="button" class="btn btn-success">Post</button>
+
+<a href="@Url.Action("Comment","Home", new {@blogPostID=@Model.ID, @comment=@Html.TextBox("txtUserName")})">  <h3 class="title">Submit</h3></a>
 

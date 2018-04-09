@@ -71,9 +71,7 @@ namespace Tinix.Controllers
 
         public async Task<IActionResult> Index(int? index)
         {
-            await Comment("00fb248b-d897-4fa2-9d6e-f59690335dae", "test comment");
-            
-     
+                
             index = index ?? 0;
 
 

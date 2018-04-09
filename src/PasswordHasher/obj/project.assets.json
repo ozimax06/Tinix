@@ -714,11 +714,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ondero\\Desktop\\dev\\Tinix\\src\\PasswordHasher\\PasswordHasher.csproj",
+      "projectUniqueName": "C:\\Users\\ondero\\desktop\\dev\\tinix\\src\\PasswordHasher\\PasswordHasher.csproj",
       "projectName": "PasswordHasher",
-      "projectPath": "C:\\Users\\ondero\\Desktop\\dev\\Tinix\\src\\PasswordHasher\\PasswordHasher.csproj",
+      "projectPath": "C:\\Users\\ondero\\desktop\\dev\\tinix\\src\\PasswordHasher\\PasswordHasher.csproj",
       "packagesPath": "C:\\Users\\ondero\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ondero\\Desktop\\dev\\Tinix\\src\\PasswordHasher\\obj\\",
+      "outputPath": "C:\\Users\\ondero\\desktop\\dev\\tinix\\src\\PasswordHasher\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
