@@ -43,24 +43,36 @@ namespace Tinix.Controllers
             return View(post);
         }
 
-        /*public async IActionResult Comment(string id,string name,  string comment)
+        public async Task<IActionResult> Comment(string blogPostID, string comment)
         {
-            BlogPost post = await blog.GetPostById(id);
-            post.comment = comment;
-            
-
-             if (post == null)
+            BlogPost post = await blog.GetPostById(blogPostID);
+       
+            if (post == null)
             {
                 return RedirectToAction("Index");
             }
 
-            return Detail(id, name);
+            try
+            {
+                await blog.AddComment(blogPostID, comment);
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
 
-        }*/
+            return RedirectToAction("Detail", new { 
+                id = blogPostID, 
+                name = post.Title
+            });
+
+        }
 
 
         public async Task<IActionResult> Index(int? index)
         {
+            await Comment("00fb248b-d897-4fa2-9d6e-f59690335dae", "test comment");
+            
      
             index = index ?? 0;
 
