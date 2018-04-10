@@ -6,6 +6,7 @@ var Tinix;
         $("#linkLogOff").click(OnLogOff);
         $("#buttonPost").click(OnPostNew);
         $(".deleteButton").click(DeletePost);
+
     }
     function DeletePost(e) {
         if (confirm("Are you absolutely sure you want to delete this ? ")) {
@@ -27,6 +28,7 @@ var Tinix;
             $("#formLogOff").submit();
         }
     }
+
     function SetupEditor() {
         // Setup editor
         var editPost = document.getElementById("Content");

@@ -5,6 +5,7 @@ module Tinix {
 	declare var tinymce: any;
 
 	$(document).ready(DoInitialSetup);
+	
 
 
 	function DoInitialSetup() {
@@ -17,12 +18,32 @@ module Tinix {
 
 		$(".deleteButton").click(DeletePost);
 
+
 	}
+
+	/*$("#add-comment-button").click(function(event)
+	{
+	event.preventDefault();
+	var url = '@Url.Action("Comment", "Home", new {blogPostID = "BLOG_ID",comment="COMMENT_ID"})';
+	url = url.replace("COMMENT_ID", $("#exampleTextarea").val());
+	url = url.replace("BLOG_ID", $("#exampleTextarea").data("id"));
+	alert(url); //just for debugging
+	debugger
+	window.location.href = url;
+	});*/
+
+	/*function AddComment(e)
+	{
+		e.preventDefault();
+		alert("comment adding");
+
+	}*/
+
 
 
 	function DeletePost(e) {
 
-		if (confirm("Are you absolutely sure you want to delete this ? ")) {
+		if (confirm("Are you absolutely sure you want to delete this? ")) {
 
 			var id: string = $(e.target).attr("data-id");
 

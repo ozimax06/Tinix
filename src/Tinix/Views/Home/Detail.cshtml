@@ -5,15 +5,31 @@
 @Html.Partial("_Post", @Model)
 <br/>
 
-----
-  @Html.TextBox("txtUserName")
-----
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery.validate.min.js"></script><script type="text/javascript" src="/js/jquery.validate.unobtrusive.js"></script>
+
 
 <div class="form-group">
     <label for="exampleTextarea">Add comment</label>
-    <textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+    <textarea class="form-control" data-id="@Model.ID" id="exampleTextarea" rows="3"></textarea>
 </div>
-<button type="button" class="btn btn-success">Post</button>
+<button type="button" id="add-comment-button" class="btn btn-success">Post</button>
 
-<a href="@Url.Action("Comment","Home", new {@blogPostID=@Model.ID, @comment=@Html.TextBox("txtUserName")})">  <h3 class="title">Submit</h3></a>
+
+<script>
+$(document).ready(function() {
+
+  $("#add-comment-button").on('click',  function(e) {
+    e.preventDefault();
+	  var url = '@Url.Action("Comment", "Home", new {blogPostID = "BLOG_ID",comment="COMMENT_ID"})';
+	  url = url.replace("COMMENT_ID", $("#exampleTextarea").val());
+	  url = url.replace("BLOG_ID", $("#exampleTextarea").data("id"));
+    url = url.replace("amp;", "");
+	  alert(url); //just for debugging
+	  window.location.href = url;
+  });
+});
+</script>
+
+
 
