@@ -1,6 +1,12 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
+
+using System.Collections.Generic;
+
+
+
+
 namespace Tinix.Context
 {
     public class BlogPost
@@ -53,6 +59,12 @@ namespace Tinix.Context
         } = DateTime.UtcNow;
 
         public bool IsPublished
+        {
+            get;
+            set;
+        }
+
+        public List<BlogPostComment> Comments
         {
             get;
             set;

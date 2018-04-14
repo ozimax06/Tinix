@@ -209,6 +209,7 @@ namespace Tinix.Context
                     PubDate = DateTime.Parse(ReadValue(doc, "pubDate")),
                     LastModified = DateTime.Parse(ReadValue(doc, "lastModified", DateTime.Now.ToString(CultureInfo.InvariantCulture))),
                     IsPublished = bool.Parse(ReadValue(doc, "ispublished", "true")),
+                    Comments = GetCommentsByBlogPostID(Path.GetFileNameWithoutExtension(file)),
                 };
 
                 posts.Add(post);
@@ -218,6 +219,11 @@ namespace Tinix.Context
 
             cache.Set(BLOG_POSTS, posts);
 
+        }
+
+        private List<BlogPostComment> GetCommentsByBlogPostID(string blogPostID)
+        {
+            return new List<BlogPostComment>();
         }
 
 
