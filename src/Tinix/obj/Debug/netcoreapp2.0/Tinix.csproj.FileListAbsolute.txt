@@ -24,6 +24,7 @@ C:\Users\ondero\Desktop\dev\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.Assemb
 C:\Users\ondero\Desktop\dev\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.csproj.CopyComplete
 C:\Users\ondero\Desktop\dev\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.dll
 C:\Users\ondero\Desktop\dev\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.pdb
+C:\Users\ondero\Desktop\dev\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.csprojResolveAssemblyReference.cache
 C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\bin\Debug\netcoreapp2.0\Tinix.deps.json
 C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\bin\Debug\netcoreapp2.0\Tinix.runtimeconfig.json
 C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\bin\Debug\netcoreapp2.0\Tinix.runtimeconfig.dev.json
@@ -37,5 +38,3 @@ C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.Ass
 C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.csproj.CopyComplete
 C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.dll
 C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.pdb
-C:\Users\ondero\Desktop\dev\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.csprojResolveAssemblyReference.cache
-C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.csprojResolveAssemblyReference.cache

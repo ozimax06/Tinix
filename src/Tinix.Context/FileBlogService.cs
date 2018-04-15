@@ -16,6 +16,7 @@ namespace Tinix.Context
     {
         
         private const string BLOG_POSTS = "blog_cache";
+        private const string BLOG_COMMENTS = "comment_cache";
 
         private IMemoryCache cache;
 
@@ -31,6 +32,7 @@ namespace Tinix.Context
 
         public void Delete(string id)
         {
+
             List<BlogPost> posts = GetCachedPosts();
 
             BlogPost blogPost = posts.FirstOrDefault(post => post.ID == id);
@@ -178,22 +180,43 @@ namespace Tinix.Context
         private List<BlogPost> GetCachedPosts()
         {
             List<BlogPost> posts;
+            List<BlogPostComment> comments;
 
-            if (cache.TryGetValue(BLOG_POSTS, out posts))
+            if (cache.TryGetValue(BLOG_POSTS, out posts) && cache.TryGetValue(BLOG_COMMENTS, out comments))
             {
+                posts = GetCommentsFromCacheForPosts(posts);
                 return posts;
             }
 
             LoadFromDisk();
 
             cache.TryGetValue(BLOG_POSTS, out posts);
+            posts = GetCommentsFromCacheForPosts(posts);
 
             return posts;
         }
 
+        private List<BlogPost>  GetCommentsFromCacheForPosts(List<BlogPost> posts)
+        {
+            List<BlogPostComment> comments = new List<BlogPostComment>();
+            cache.TryGetValue(BLOG_COMMENTS, out comments);
+
+            foreach(var post in posts)
+            {
+                post.Comments = comments.Where(x => x.BlogPostID == post.ID).ToList();
+            }
+
+            return posts;
+
+        }
+
+        /* 
+        Retrieve blogposts and comments from XML and store them separately in the cachce
+        */
         private void LoadFromDisk()
         {
             List<BlogPost> posts = new List<BlogPost>();
+            List<BlogPostComment> comments = new List<BlogPostComment>();
 
             foreach (string file in Directory.EnumerateFiles(ApplicationContext.PostsFolder, "*.xml", SearchOption.TopDirectoryOnly))
             {
@@ -209,22 +232,35 @@ namespace Tinix.Context
                     PubDate = DateTime.Parse(ReadValue(doc, "pubDate")),
                     LastModified = DateTime.Parse(ReadValue(doc, "lastModified", DateTime.Now.ToString(CultureInfo.InvariantCulture))),
                     IsPublished = bool.Parse(ReadValue(doc, "ispublished", "true")),
-                    Comments = GetCommentsByBlogPostID(Path.GetFileNameWithoutExtension(file)),
                 };
 
                 posts.Add(post);
             }
 
+            foreach (string file in Directory.EnumerateFiles(ApplicationContext.CommentsFolder, "*.xml", SearchOption.TopDirectoryOnly))
+            {
+                XElement doc = XElement.Load(file);
+
+                BlogPostComment comment = new BlogPostComment
+                {
+                    ID = Path.GetFileNameWithoutExtension(file),
+                    BlogPostID = ReadValue(doc, "BlogPostID "),
+                    Comment = ReadValue(doc, "comment"),
+                };
+
+                comments.Add(comment);
+            }
+
             Sort(ref posts);
 
             cache.Set(BLOG_POSTS, posts);
+            cache.Set(BLOG_COMMENTS, comments);
+
+            
 
         }
 
-        private List<BlogPostComment> GetCommentsByBlogPostID(string blogPostID)
-        {
-            return new List<BlogPostComment>();
-        }
+
 
 
         private void Sort(ref List<BlogPost> posts)
