@@ -1,6 +1,7 @@
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
 using System;
+
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -184,8 +185,8 @@ namespace Tinix.Context
 
             if (cache.TryGetValue(BLOG_POSTS, out posts) && cache.TryGetValue(BLOG_COMMENTS, out comments))
             {
-                posts = GetCommentsFromCacheForPosts(posts);
-                return posts;
+               posts = GetCommentsFromCacheForPosts(posts);
+               return posts;
             }
 
             LoadFromDisk();
@@ -203,6 +204,7 @@ namespace Tinix.Context
 
             foreach(var post in posts)
             {
+                
                 post.Comments = comments.Where(x => x.BlogPostID == post.ID).ToList();
             }
 
@@ -241,10 +243,14 @@ namespace Tinix.Context
             {
                 XElement doc = XElement.Load(file);
 
+                //var x = Path.GetFileNameWithoutExtension(file);
+                //var y = ReadValue(doc, "BlogPostID ");
+                //var z = ReadValue(doc, "comment");
+
                 BlogPostComment comment = new BlogPostComment
                 {
                     ID = Path.GetFileNameWithoutExtension(file),
-                    BlogPostID = ReadValue(doc, "BlogPostID "),
+                    BlogPostID = ReadValue(doc, "BlogPostID"),
                     Comment = ReadValue(doc, "comment"),
                 };
 

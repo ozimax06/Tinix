@@ -108,7 +108,6 @@ namespace Tinix.Controllers
                 HasMorePages = skipItems < total
             };
 
-
             return View(viewModel);
         }
     }
