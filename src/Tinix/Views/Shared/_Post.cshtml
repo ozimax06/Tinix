@@ -10,7 +10,8 @@
         <span>@Model.PubDate.ToString("MMMM", CultureInfo.InvariantCulture)  @Model.PubDate.Day, @Model.PubDate.Year </span>
         <hr />
         @Html.Raw(@Model.Content)
+        <hr />
+        <span>Comments @Model.Comments.Count</span>
     </div>
 </div>
 <br />
-

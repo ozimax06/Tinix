@@ -1,0 +1,25 @@
+@using System.Globalization
+@using Tinix.Context
+@using System.Net
+@model BlogPost
+
+
+<div class="row">
+    <div class="col-12 postContainer">
+        <a href="@Url.Action("Detail","Home", new {@id=@Model.ID, @name=@WebUtility.UrlEncode(Model.Title) })">  <h3 class="title">@Model.Title</h3> </a>
+        <span>@Model.PubDate.ToString("MMMM", CultureInfo.InvariantCulture)  @Model.PubDate.Day, @Model.PubDate.Year </span>
+        <hr />
+        @Html.Raw(@Model.Content)
+        <hr />
+        <span>Comments</span>
+        <br>
+        <ul>    
+            @foreach (var comment in Model.Comments)
+            {
+                // cut for brevity, need to add back more code from original
+                <li>@comment.Comment</li>
+            }
+        </ul>
+    </div>
+</div>
+<br />
