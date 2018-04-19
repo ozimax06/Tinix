@@ -38,3 +38,4 @@ C:\Users\ondero\Desktop\dev\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.csproj
 C:\Users\ondero\Desktop\dev\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.dll
 C:\Users\ondero\Desktop\dev\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.pdb
 C:\Users\ondero\Desktop\dev\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.csprojResolveAssemblyReference.cache
+C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\obj\Debug\netcoreapp2.0\Tinix.csprojResolveAssemblyReference.cache

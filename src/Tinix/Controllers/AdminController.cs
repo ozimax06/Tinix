@@ -62,8 +62,8 @@ namespace Tinix.Controllers
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principle);
 
                 return RedirectToAction("NewPost");
-            }
-
+            } 
+            model.CredentialsCorrect = false;
             return View(model);
 
         }

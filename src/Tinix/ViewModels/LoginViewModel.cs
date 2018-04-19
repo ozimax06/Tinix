@@ -23,5 +23,11 @@ namespace Tinix.Models
             get;
             set;
         }
+        
+        public bool CredentialsCorrect
+        {
+            get;
+            set;
+        } = true;
     }
 }
