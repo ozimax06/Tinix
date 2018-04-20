@@ -81,6 +81,16 @@ namespace Tinix.Context
             {
                 await doc.SaveAsync(fs, SaveOptions.None, CancellationToken.None).ConfigureAwait(false);
             }
+
+            BlogPostComment blogComment = new BlogPostComment
+            {
+                BlogPostID = BlogPostID,
+                Comment = comment
+            };
+
+            List<BlogPostComment> blogComments =  GetCachedComments();
+            blogComments.Add(blogComment);
+            cache.Set(BLOG_COMMENTS, blogComments);
                         
         }
 
@@ -158,6 +168,8 @@ namespace Tinix.Context
         public Task<BlogPost> GetPostById(string id)
         {
             List<BlogPost> posts = GetCachedPosts();
+            List<BlogPostComment> comments= GetCachedComments();
+            posts = AssignCommentsToPosts(posts, comments);
 
             return Task.FromResult(posts.FirstOrDefault(post => post.ID == id));
 
@@ -166,6 +178,8 @@ namespace Tinix.Context
         public Task<List<BlogPost>> GetPosts()
         {
             List<BlogPost> posts = GetCachedPosts();
+            List<BlogPostComment> comments= GetCachedComments();
+            posts = AssignCommentsToPosts(posts, comments);
 
             return Task.FromResult(posts);
         }
@@ -173,6 +187,8 @@ namespace Tinix.Context
         public Task<List<BlogPost>> GetPosts(int count, int skip = 0)
         {
             List<BlogPost> posts = GetCachedPosts();
+            List<BlogPostComment> comments= GetCachedComments();
+            posts = AssignCommentsToPosts(posts, comments);
 
             return Task.FromResult(posts.Skip(skip).Take(count).ToList());
         }
@@ -181,27 +197,35 @@ namespace Tinix.Context
         private List<BlogPost> GetCachedPosts()
         {
             List<BlogPost> posts;
-            List<BlogPostComment> comments;
 
-            if (cache.TryGetValue(BLOG_POSTS, out posts) && cache.TryGetValue(BLOG_COMMENTS, out comments))
+            if (cache.TryGetValue(BLOG_POSTS, out posts))
             {
-               posts = GetCommentsFromCacheForPosts(posts);
                return posts;
             }
 
             LoadFromDisk();
-
             cache.TryGetValue(BLOG_POSTS, out posts);
-            posts = GetCommentsFromCacheForPosts(posts);
 
             return posts;
         }
 
-        private List<BlogPost>  GetCommentsFromCacheForPosts(List<BlogPost> posts)
+        private List<BlogPostComment> GetCachedComments()
         {
-            List<BlogPostComment> comments = new List<BlogPostComment>();
+            List<BlogPostComment> comments;
+
+            if (cache.TryGetValue(BLOG_COMMENTS, out comments))
+            {
+               return comments;
+            }
+
+            LoadFromDisk();
             cache.TryGetValue(BLOG_COMMENTS, out comments);
 
+            return comments;
+        }
+
+        private List<BlogPost> AssignCommentsToPosts(List<BlogPost> posts, List<BlogPostComment> comments)      
+        {
             foreach(var post in posts)
             {
                 
@@ -209,8 +233,8 @@ namespace Tinix.Context
             }
 
             return posts;
-
         }
+
 
         /* 
         Retrieve blogposts and comments from XML and store them separately in the cachce
@@ -243,9 +267,6 @@ namespace Tinix.Context
             {
                 XElement doc = XElement.Load(file);
 
-                //var x = Path.GetFileNameWithoutExtension(file);
-                //var y = ReadValue(doc, "BlogPostID ");
-                //var z = ReadValue(doc, "comment");
 
                 BlogPostComment comment = new BlogPostComment
                 {

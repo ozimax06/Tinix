@@ -11,6 +11,12 @@
         <hr />
         @Html.Raw(@Model.Content)
         <hr />
+
+        @if (Model.Comments.Count > 0)
+        {
+            <span class="glyphicon glyphicon-comment">@Html.Raw(@Model.Comments.Count)</span>
+            <i class="fa fa-address-book-o" aria-hidden="true"></i> 
+        }
        
     </div>
 </div>

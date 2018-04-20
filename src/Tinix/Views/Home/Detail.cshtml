@@ -25,7 +25,6 @@ $(document).ready(function() {
 	  url = url.replace("COMMENT_ID", $("#exampleTextarea").val());
 	  url = url.replace("BLOG_ID", $("#exampleTextarea").data("id"));
     url = url.replace("amp;", "");
-	  alert(url); //just for debugging
 	  window.location.href = url;
   });
 });
