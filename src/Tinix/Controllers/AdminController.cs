@@ -27,7 +27,8 @@ namespace Tinix.Controllers
 
         public IActionResult Login()
         {
-            return View();
+
+            return View(new LoginViewModel());
         }
 
 
