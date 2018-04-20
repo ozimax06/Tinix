@@ -99,6 +99,20 @@ namespace Tinix.Controllers
             return RedirectToAction("Posts", "Admin");
         }
 
+        [Authorize, HttpPost]
+        public async Task<IActionResult> Edit(string postId)
+        {
+            BlogPost post = await blogService.GetPostById(postId);
+            if(post != null)
+            {
+                NewPostViewModel viewModel = new NewPostViewModel();
+   
+            }
+            
+            
+            return RedirectToAction("Posts", "Admin");
+        }
+
 
 
         [Authorize]

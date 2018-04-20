@@ -6,6 +6,7 @@ var Tinix;
         $("#linkLogOff").click(OnLogOff);
         $("#buttonPost").click(OnPostNew);
         $(".deleteButton").click(DeletePost);
+        $(".editButton").click(EditPost);
 
     }
     function DeletePost(e) {
@@ -14,6 +15,12 @@ var Tinix;
             $("#fieldDelete").val(id);
             $("#formDelete").submit();
         }
+    }
+    function EditPost(e) {
+            var id = $(e.target).attr("data-id");
+            $("#fieldEdit").val(id);
+            $("#formEdit").submit();
+
     }
     function OnPostNew() {
         var content = tinymce.get('Content').getContent({ format: 'text' });
