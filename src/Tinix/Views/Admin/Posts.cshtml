@@ -42,6 +42,7 @@
                     <th scope="col">Post Name</th>
                     <th scope="col">Published Date</th>
                     <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -57,6 +58,9 @@
                         </td>
                         <td>
                             @item.PubDate.ToShortDateString()
+                        </td>
+                         <td>
+                            <button data-id="@item.ID" class="editButton btn btn-success">Edit</button>
                         </td>
                         <td>
                             <button data-id="@item.ID" class="deleteButton btn btn-danger">Delete</button>
