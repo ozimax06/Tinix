@@ -98,6 +98,7 @@ namespace Tinix.Controllers
 
             return RedirectToAction("Posts", "Admin");
         }
+        
 
         [Authorize, HttpPost]
         public async Task<IActionResult> EditPost(string postId)
@@ -114,8 +115,19 @@ namespace Tinix.Controllers
    
             }
              return RedirectToAction("NewPost", "Admin");
-                        
-            
+                                   
+        }
+
+        [Authorize, HttpPost]
+        public async Task<IActionResult> Edit(EditPostViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("EditPost", model);
+            }
+
+            return RedirectToAction("Posts", "Admin");
+
         }
 
 
@@ -127,7 +139,7 @@ namespace Tinix.Controllers
             return View(viewModel);
         }
 
-
+     
         [Authorize, HttpPost]
         public async Task<IActionResult> NewPost(NewPostViewModel model)
         {
@@ -148,6 +160,9 @@ namespace Tinix.Controllers
             return Redirect("NewPost");
 
         }
+
+        
+ 
 
 
     }

@@ -33,9 +33,13 @@
         <h1 class="text-center">Edit Post</h1>
 
         <br />
-        Title :
-        <br />
-        <form method="post" action="@Url.Action("NewPost","Admin")">
+
+      
+        <form method="post" action="@Url.Action("Edit","Admin")">
+            @Html.TextBoxFor(model => model. BlogPostID, new { @id = "textBoxBlogPostID",  style = "display: none;" })
+            <br/>
+            Title :
+            <br />
             @Html.TextBoxFor(model => model.Title, new { @id = "textBoxTitle", @class = "form-control" })
             @Html.ValidationMessageFor(model => model.Title, string.Empty, new { @class = "text-danger" })
             <br/>
