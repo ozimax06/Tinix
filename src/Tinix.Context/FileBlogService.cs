@@ -159,16 +159,25 @@ namespace Tinix.Context
 
          public async Task EditPost(string id, string postContent, string title)
          {
+            var now =  DateTime.UtcNow;
             XElement doc = XElement.Load(ApplicationContext.PostsFolder + "/" + id+ ".xml");
             doc.Element("content").Value = postContent;
             doc.Element("title").Value = title;
-            doc.Element("lastModified").Value = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
+            doc.Element("lastModified").Value = now.ToString("yyyy-MM-dd HH:mm:ss");
 
             using (FileStream fs = new FileStream(ApplicationContext.PostsFolder + @"\" + id + ".xml", FileMode.Create, FileAccess.ReadWrite))
             {
                 await doc.SaveAsync(fs, SaveOptions.None, CancellationToken.None).ConfigureAwait(false);
             }
-            
+
+            //edit the post from the list and reset the cache
+            List<BlogPost> posts = GetCachedPosts();
+            posts.Where(p=> p.ID == id)
+                 .Select(p => { p.Content = postContent; p.Title = title; p.LastModified = now; return p;} )
+                 .ToList();
+
+            Sort(ref posts);
+            cache.Set(BLOG_POSTS, posts);
 
          }
 
