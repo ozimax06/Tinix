@@ -19,6 +19,8 @@ namespace Tinix.Context
         Task<BlogPost> GetPostById(string id);
 
         void Delete(string id);
+        
+        void DeleteComment(string id);
 
         Task AddComment(string BlogPostID, string comment);
     }

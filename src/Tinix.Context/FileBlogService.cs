@@ -67,6 +67,27 @@ namespace Tinix.Context
             }
         }
 
+        public void DeleteComment(string id)
+        {
+            string filePath = ApplicationContext.CommentsFolder + @"\" + id + ".xml";
+
+            try
+            {
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+                else
+                {
+                    log.LogError($"File {filePath} not found");
+                }
+            }
+            catch (Exception ex)
+            {
+                log.LogError(ex, ex.Message);
+            }
+        }
+
         public async Task AddComment(string BlogPostID, string comment)
         {
             XDocument doc = new XDocument(
