@@ -157,6 +157,21 @@ namespace Tinix.Context
             Sort(ref posts);
         }
 
+         public async Task EditPost(string id, string postContent, string title)
+         {
+            XElement doc = XElement.Load(ApplicationContext.PostsFolder + "/" + id+ ".xml");
+            doc.Element("content").Value = postContent;
+            doc.Element("title").Value = title;
+            doc.Element("lastModified").Value = DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss");
+
+            using (FileStream fs = new FileStream(ApplicationContext.PostsFolder + @"\" + id + ".xml", FileMode.Create, FileAccess.ReadWrite))
+            {
+                await doc.SaveAsync(fs, SaveOptions.None, CancellationToken.None).ConfigureAwait(false);
+            }
+            
+
+         }
+
 
 
         public int GetTotalPostsCount()

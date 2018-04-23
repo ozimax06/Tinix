@@ -100,7 +100,7 @@ namespace Tinix.Controllers
         }
         
 
-        [Authorize, HttpPost]
+        [Authorize]
         public async Task<IActionResult> EditPost(string postId)
         {
             BlogPost post = await blogService.GetPostById(postId);
@@ -119,12 +119,16 @@ namespace Tinix.Controllers
         }
 
         [Authorize, HttpPost]
-        public async Task<IActionResult> Edit(EditPostViewModel model)
+        public async Task<IActionResult> EditPost(EditPostViewModel model)
         {
             if (!ModelState.IsValid)
             {
                 return RedirectToAction("EditPost", model);
             }
+
+            blogService.EditPost(model.BlogPostID, model.Content, model.Title);
+
+
 
             return RedirectToAction("Posts", "Admin");
 
