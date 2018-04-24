@@ -110,6 +110,7 @@ namespace Tinix.Controllers
                 viewModel.BlogPostID = postId;
                 viewModel.Title = post.Title;
                 viewModel.Content = post.Content;  
+                viewModel.Comments = post.Comments;
 
                 return View(viewModel);
    

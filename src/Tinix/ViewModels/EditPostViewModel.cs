@@ -1,4 +1,6 @@
 using System.ComponentModel.DataAnnotations;
+using Tinix.Context;
+using System.Collections.Generic;
 
 namespace Tinix.Models
 {
@@ -22,6 +24,12 @@ namespace Tinix.Models
 
 
         public string Content
+        {
+            get;
+            set;
+        }
+
+        public List<BlogPostComment> Comments
         {
             get;
             set;
