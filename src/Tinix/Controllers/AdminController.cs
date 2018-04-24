@@ -98,6 +98,13 @@ namespace Tinix.Controllers
 
             return RedirectToAction("Posts", "Admin");
         }
+
+        [Authorize, HttpPost]
+        public ActionResult DeleteComment(string commentId)
+        {
+
+            return RedirectToAction("Posts", "Admin");
+        }
         
 
         [Authorize]

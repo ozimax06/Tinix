@@ -1,11 +1,8 @@
 @using Tinix.Context
-
-
 @model EditPostViewModel
 @{
     Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
 }
-
 
 
 <script type="text/javascript" src="/js/admin.js"></script>
@@ -54,8 +51,37 @@
                 <input type="submit" value="Post" id="buttonPost" class="btn btn-primary" />
             </div>
         </form>
+        <h2>Comments:</h2>
+
+        <table class="table">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (BlogPostComment comment in Model.Comments)
+                {
+
+                    <tr>
+                        <td>
+                            @comment.Comment
+                        </td>
+                        <td>
+                            <button data-id="@comment.ID" class="deleteButton btn btn-danger">Delete</button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        
     </div>
 </div>
 
 
 <form id="formLogOff" action="@Url.Action("LogOff", "Admin")" method="post"></form>
+
+<form method="post" id="commentDelete"  action="@Url.Action("DeleteComment","Admin")" >
+    <input type="hidden" id="fieldID" name="ID" />
+</form>
