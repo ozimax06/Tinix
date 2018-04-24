@@ -127,9 +127,6 @@ namespace Tinix.Controllers
             }
 
             blogService.EditPost(model.BlogPostID, model.Content, model.Title);
-
-
-
             return RedirectToAction("Posts", "Admin");
 
         }

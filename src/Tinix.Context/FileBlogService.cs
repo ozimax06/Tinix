@@ -35,6 +35,8 @@ namespace Tinix.Context
         {
 
             List<BlogPost> posts = GetCachedPosts();
+            List<BlogPostComment> comments = GetCachedComments();
+            comments = comments.Where(c => c.BlogPostID == id).ToList();
 
             BlogPost blogPost = posts.FirstOrDefault(post => post.ID == id);
 
@@ -65,6 +67,11 @@ namespace Tinix.Context
             {
                 log.LogError(ex, ex.Message);
             }
+            //Remove associated comments
+            foreach(var comment in comments)
+            {
+                DeleteComment(comment.ID);
+            }
         }
 
         public void DeleteComment(string id)
@@ -75,7 +82,15 @@ namespace Tinix.Context
             {
                 if (File.Exists(filePath))
                 {
-                    File.Delete(filePath);
+                     File.Delete(filePath);
+                     List<BlogPostComment> blogComments =  GetCachedComments();
+                     BlogPostComment blogComment = blogComments.FirstOrDefault(b => b.ID == id);
+                     if(blogComment != null)
+                     {
+                        blogComments.Remove(blogComment);
+                        cache.Set(BLOG_COMMENTS, blogComments);
+                     }
+
                 }
                 else
                 {
