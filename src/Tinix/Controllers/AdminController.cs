@@ -100,10 +100,18 @@ namespace Tinix.Controllers
         }
 
         [Authorize, HttpPost]
-        public ActionResult DeleteComment(string commentId)
+        public ActionResult DeleteComment(string commentId, string postId)
         {
+            try
+            {
+                blogService.DeleteComment(commentId);
+            }
+            catch (Exception ex)
+            {
+                log.LogError(ex, ex.Message);
+            }
 
-            return RedirectToAction("Posts", "Admin");
+            return RedirectToAction("EditPost", new {postId=postId });
         }
         
 

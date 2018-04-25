@@ -6,6 +6,7 @@ var Tinix;
         $("#linkLogOff").click(OnLogOff);
         $("#buttonPost").click(OnPostNew);
         $(".deleteButton").click(DeletePost);
+        $(".deleteCommentButton").click(DeleteComment);
         $(".editButton").click(EditPost);
 
     }
@@ -16,6 +17,14 @@ var Tinix;
             $("#formDelete").submit();
         }
     }
+    function DeleteComment(e) {
+            var commentid = $(e.target).attr("data-id");
+            var postid = $(e.target).attr("data-postid");
+            $("#commentDeleteField").val(commentid);
+            $("#commentPostIdField").val(postid);
+            $("#formCommentDelete").submit();
+    }
+    
     function EditPost(e) {
             var id = $(e.target).attr("data-id");
             $("#fieldEdit").val(id);

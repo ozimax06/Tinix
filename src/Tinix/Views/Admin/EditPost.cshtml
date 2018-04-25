@@ -63,13 +63,12 @@
             <tbody>
                 @foreach (BlogPostComment comment in Model.Comments)
                 {
-
                     <tr>
                         <td>
                             @comment.Comment
                         </td>
                         <td>
-                            <button data-id="@comment.ID" class="deleteButton btn btn-danger">Delete</button>
+                            <button data-id="@comment.ID" data-postid="@Model.BlogPostID" class="deleteCommentButton btn btn-danger">Delete</button>
                         </td>
                     </tr>
                 }
@@ -82,6 +81,7 @@
 
 <form id="formLogOff" action="@Url.Action("LogOff", "Admin")" method="post"></form>
 
-<form method="post" id="commentDelete"  action="@Url.Action("DeleteComment","Admin")" >
-    <input type="hidden" id="fieldID" name="ID" />
+<form method="post" id="formCommentDelete"  action="@Url.Action("DeleteComment","Admin")" >
+    <input type="hidden" id="commentDeleteField" name="commentId" />
+    <input type="hidden" id="commentPostIdField" name="postId" />
 </form>
