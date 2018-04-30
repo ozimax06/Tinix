@@ -142,7 +142,7 @@ namespace Tinix.Controllers
                 return RedirectToAction("EditPost", model);
             }
 
-            blogService.EditPost(model.BlogPostID, model.Content, model.Title);
+            await blogService.EditPost(model.BlogPostID, model.Content, model.Title);
             return RedirectToAction("Posts", "Admin");
 
         }

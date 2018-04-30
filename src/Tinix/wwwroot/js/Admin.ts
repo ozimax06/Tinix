@@ -21,25 +21,6 @@ module Tinix {
 
 	}
 
-	/*$("#add-comment-button").click(function(event)
-	{
-	event.preventDefault();
-	var url = '@Url.Action("Comment", "Home", new {blogPostID = "BLOG_ID",comment="COMMENT_ID"})';
-	url = url.replace("COMMENT_ID", $("#exampleTextarea").val());
-	url = url.replace("BLOG_ID", $("#exampleTextarea").data("id"));
-	alert(url); //just for debugging
-	debugger
-	window.location.href = url;
-	});*/
-
-	/*function AddComment(e)
-	{
-		e.preventDefault();
-		alert("comment adding");
-
-	}*/
-
-
 
 	function DeletePost(e) {
 

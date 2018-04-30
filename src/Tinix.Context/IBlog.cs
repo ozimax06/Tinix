@@ -23,5 +23,7 @@ namespace Tinix.Context
         void DeleteComment(string id);
 
         Task AddComment(string BlogPostID, string comment);
+        
+        Task LikePost(string BlogPost);
     }
 }

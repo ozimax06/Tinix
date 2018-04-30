@@ -147,7 +147,8 @@ namespace Tinix.Context
                                 new XElement("excerpt", string.Empty),
                                 new XElement("content", content),
                                 new XElement("ispublished", true),
-                                new XElement("categories", string.Empty)
+                                new XElement("categories", string.Empty),
+                                new XElement("numberOfLikes", "0")
                             ));
 
             //XElement categories = doc.XPathSelectElement("post/categories");
@@ -217,6 +218,19 @@ namespace Tinix.Context
 
          }
 
+         public async Task LikePost(string BlogPostID)
+         {
+                XElement doc = XElement.Load(ApplicationContext.PostsFolder + "/" +  BlogPostID+ ".xml");
+                
+                var likes = Convert.ToInt32(doc.Element("numberOfLikes").Value); 
+                doc.Element("numberOfLikes").Value = (likes+1).ToString();
+
+                using (FileStream fs = new FileStream(ApplicationContext.PostsFolder + @"\" + BlogPostID + ".xml", FileMode.Create, FileAccess.ReadWrite))
+                {
+                    await doc.SaveAsync(fs, SaveOptions.None, CancellationToken.None).ConfigureAwait(false);
+                }
+
+         }
 
 
         public int GetTotalPostsCount()
