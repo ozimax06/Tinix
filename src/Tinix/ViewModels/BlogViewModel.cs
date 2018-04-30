@@ -30,7 +30,6 @@ namespace Tinix.Models
             set;
         }
 
-
         public bool HasMorePages
         {
             get;

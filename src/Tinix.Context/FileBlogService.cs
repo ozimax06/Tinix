@@ -187,6 +187,7 @@ namespace Tinix.Context
             post.Excerpt = string.Empty;
             post.IsPublished = true;
             post.ID = id;
+            post.NumberOfLikes = 0;
 
             posts.Add(post);
 
@@ -332,6 +333,7 @@ namespace Tinix.Context
                     PubDate = DateTime.Parse(ReadValue(doc, "pubDate")),
                     LastModified = DateTime.Parse(ReadValue(doc, "lastModified", DateTime.Now.ToString(CultureInfo.InvariantCulture))),
                     IsPublished = bool.Parse(ReadValue(doc, "ispublished", "true")),
+                    NumberOfLikes =  Convert.ToInt32(ReadValue(doc, "numberOfLikes")),
                 };
 
                 posts.Add(post);

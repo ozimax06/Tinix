@@ -69,5 +69,11 @@ namespace Tinix.Context
             get;
             set;
         }
+
+        public int NumberOfLikes
+        {
+            get;
+            set;
+        }
     }
 }
