@@ -5,19 +5,22 @@
 
 
 <div class="row">
-    <div class="col-12 postContainer">
+    <div class="col-md-12 postContainer">
         <a href="@Url.Action("Detail","Home", new {@id=@Model.ID, @name=@WebUtility.UrlEncode(Model.Title) })">  <h3 class="title">@Model.Title</h3> </a>
         <span>@Model.PubDate.ToString("MMMM", CultureInfo.InvariantCulture)  @Model.PubDate.Day, @Model.PubDate.Year </span>
         <hr />
-        @Html.Raw(@Model.Content)
-        <hr />
-
-        @if (Model.Comments.Count > 0)
-        {
-            <span class="glyphicon glyphicon-comment">@Html.Raw(@Model.Comments.Count)</span>
-            <i class="fa fa-address-book-o" aria-hidden="true"></i> 
-        }
-       
+        @Html.Raw(@Model.Content)           
     </div>
+    <div class="col-sm-1">      
+        <i class="fa fa-heart"></i>
+        <span>(@Html.Raw(@Model.NumberOfLikes))</span>
+    </div>
+    <div class="col-sm-1">
+        <i class="fa fa-comment" aria-hidden="true"></i> 
+        <span class="glyphicon glyphicon-comment">(@Html.Raw(@Model.Comments.Count))</span>         
+    </div>
+       
+ 
+  
 </div>
 <br />

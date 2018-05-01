@@ -221,15 +221,22 @@ namespace Tinix.Context
 
          public async Task LikePost(string BlogPostID)
          {
-                XElement doc = XElement.Load(ApplicationContext.PostsFolder + "/" +  BlogPostID+ ".xml");
-                
-                var likes = Convert.ToInt32(doc.Element("numberOfLikes").Value); 
-                doc.Element("numberOfLikes").Value = (likes+1).ToString();
+            XElement doc = XElement.Load(ApplicationContext.PostsFolder + "/" +  BlogPostID+ ".xml");
+            
+            var likes = Convert.ToInt32(doc.Element("numberOfLikes").Value); 
+            doc.Element("numberOfLikes").Value = (likes+1).ToString();
 
-                using (FileStream fs = new FileStream(ApplicationContext.PostsFolder + @"\" + BlogPostID + ".xml", FileMode.Create, FileAccess.ReadWrite))
-                {
-                    await doc.SaveAsync(fs, SaveOptions.None, CancellationToken.None).ConfigureAwait(false);
-                }
+            using (FileStream fs = new FileStream(ApplicationContext.PostsFolder + @"\" + BlogPostID + ".xml", FileMode.Create, FileAccess.ReadWrite))
+            {
+                await doc.SaveAsync(fs, SaveOptions.None, CancellationToken.None).ConfigureAwait(false);
+            }
+            List<BlogPost> posts = GetCachedPosts();
+            posts.Where(p=> p.ID == BlogPostID)
+                 .Select(p => { p.NumberOfLikes = likes+1; return p;} )
+                 .ToList();
+
+            Sort(ref posts);
+            cache.Set(BLOG_POSTS, posts);     
 
          }
 

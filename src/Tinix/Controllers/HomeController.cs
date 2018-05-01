@@ -71,10 +71,8 @@ namespace Tinix.Controllers
 
         public async Task<IActionResult> Index(int? index)
         {
-          
-                
+                          
             index = index ?? 0;
-
 
             if (index > 1)
             {
