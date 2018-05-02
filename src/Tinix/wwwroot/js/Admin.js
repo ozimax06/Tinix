@@ -6,6 +6,7 @@ var Tinix;
         $("#linkLogOff").click(OnLogOff);
         $("#buttonPost").click(OnPostNew);
         $(".deleteButton").click(DeletePost);
+        $(".resetButton").click(Reset);
         $(".deleteCommentButton").click(DeleteComment);
         $(".editButton").click(EditPost);
 
@@ -15,6 +16,11 @@ var Tinix;
             var id = $(e.target).attr("data-id");
             $("#fieldDelete").val(id);
             $("#formDelete").submit();
+        }
+    }
+    function Reset(e) {
+        if (confirm("Are you absolutely sure you want to delete all the posts and comments ? ")) {
+            $("#blogReset").submit();
         }
     }
     function DeleteComment(e) {

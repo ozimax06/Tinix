@@ -72,9 +72,26 @@
     </div>
 </div>
 
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <button class="resetButton btn btn-danger">Reset Blog</button>
+    </li>
+</ul>
+
+
+
+
+
+
+
+
 
 <form method="post" id="formDelete"  action="@Url.Action("Delete","Admin")" >
     <input type="hidden" id="fieldDelete" name="postId" />
+</form>
+
+<form method="post" id="blogReset"  action="@Url.Action("Reset","Admin")" >
+    <input type="hidden" id="fieldReset" />
 </form>
 
 <form method="get" id="formEdit"  action="@Url.Action("EditPost","Admin")" >

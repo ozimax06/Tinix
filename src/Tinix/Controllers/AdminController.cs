@@ -100,6 +100,15 @@ namespace Tinix.Controllers
         }
 
         [Authorize, HttpPost]
+        public ActionResult Reset()
+        {
+            if(true){}
+
+            return RedirectToAction("Posts", "Admin");
+        }
+
+
+        [Authorize, HttpPost]
         public ActionResult DeleteComment(string commentId, string postId)
         {
             try
