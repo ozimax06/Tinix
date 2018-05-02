@@ -3,6 +3,8 @@
 @using System.Net
 @model BlogPost
 
+<script type="text/javascript" src="/js/jquery.js"></script>
+
 
 <div class="row">
     <div class="col-12 postContainer">
@@ -10,8 +12,19 @@
         <span>@Model.PubDate.ToString("MMMM", CultureInfo.InvariantCulture)  @Model.PubDate.Day, @Model.PubDate.Year </span>
         <hr />
         @Html.Raw(@Model.Content)
-        <hr />
-        <span>Comments</span>
+        <div class="row">
+        <div class="col-sm-1">      
+            <i class="likeButton fa fa-heart"></i>
+        <span>(@Html.Raw(@Model.NumberOfLikes))</span>
+        </div>
+        <div class="col-sm-1">
+            <i class="fa fa-comment" aria-hidden="true"></i> 
+            <span class="glyphicon glyphicon-comment">(@Html.Raw(@Model.Comments.Count))</span>         
+        </div> 
+        </div>    
+    </div>
+    <div class="col-12 postContainer">
+         <span>Comments</span>
         <br>
         <ul>    
             @foreach (var comment in Model.Comments)
@@ -19,7 +32,21 @@
                 // cut for brevity, need to add back more code from original
                 <li>@comment.Comment</li>
             }
-        </ul>
+        </ul> 
     </div>
 </div>
 <br />
+
+<script>
+$(document).ready(function() {
+
+  $(".likeButton").on('click',  function(e) {
+    e.preventDefault();
+	  var url = '@Url.Action("Like", "Home", new {blogPostID = "BLOG_ID"})';
+	  url = url.replace("BLOG_ID", $("#exampleTextarea").data("id"));
+      url = url.replace("amp;", "");
+
+	  window.location.href = url;
+  });
+});
+</script>

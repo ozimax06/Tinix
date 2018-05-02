@@ -68,6 +68,31 @@ namespace Tinix.Controllers
 
         }
 
+        public async Task<IActionResult> Like(string blogPostID)
+        {
+            BlogPost post = await blog.GetPostById(blogPostID);
+       
+            if (post == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            try
+            {
+                await blog.LikePost(blogPostID);
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+
+            return RedirectToAction("Detail", new { 
+                id = blogPostID, 
+                name = post.Title
+            });
+
+        }
+
 
         public async Task<IActionResult> Index(int? index)
         {
