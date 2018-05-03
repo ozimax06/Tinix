@@ -102,7 +102,12 @@ namespace Tinix.Controllers
         [Authorize, HttpPost]
         public ActionResult Reset()
         {
-            if(true){}
+            var blogs = await blogService.GetPosts();
+
+            foreach (var blog in blogs)
+            {
+                blogService.Delete(blog.BlogPostID);
+            }
 
             return RedirectToAction("Posts", "Admin");
         }
@@ -111,15 +116,9 @@ namespace Tinix.Controllers
         [Authorize, HttpPost]
         public ActionResult DeleteComment(string commentId, string postId)
         {
-            try
-            {
-                blogService.DeleteComment(commentId);
-            }
-            catch (Exception ex)
-            {
-                log.LogError(ex, ex.Message);
-            }
 
+            blogService.DeleteComment(commentId);
+     
             return RedirectToAction("EditPost", new {postId=postId });
         }
         
