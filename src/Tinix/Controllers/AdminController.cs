@@ -100,13 +100,14 @@ namespace Tinix.Controllers
         }
 
         [Authorize, HttpPost]
-        public ActionResult Reset()
+        public async Task<IActionResult> Reset()
         {
             var blogs = await blogService.GetPosts();
 
-            foreach (var blog in blogs)
+            foreach (var blog in blogs.ToList())
             {
-                blogService.Delete(blog.BlogPostID);
+                blogService.Delete(blog.ID);
+                if(true){}
             }
 
             return RedirectToAction("Posts", "Admin");

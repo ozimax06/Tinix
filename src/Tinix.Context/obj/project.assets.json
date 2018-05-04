@@ -853,28 +853,30 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ozan\\.nuget\\packages\\": {},
+    "C:\\Users\\ondero\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\ozan\\Desktop\\projects\\Tinix\\src\\Tinix.Context\\Tinix.Context.csproj",
+      "projectUniqueName": "C:\\Users\\ondero\\Desktop\\dev\\Tinix\\src\\Tinix.Context\\Tinix.Context.csproj",
       "projectName": "Tinix.Context",
-      "projectPath": "C:\\Users\\ozan\\Desktop\\projects\\Tinix\\src\\Tinix.Context\\Tinix.Context.csproj",
-      "packagesPath": "C:\\Users\\ozan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\ozan\\Desktop\\projects\\Tinix\\src\\Tinix.Context\\obj\\",
+      "projectPath": "C:\\Users\\ondero\\Desktop\\dev\\Tinix\\src\\Tinix.Context\\Tinix.Context.csproj",
+      "packagesPath": "C:\\Users\\ondero\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ondero\\Desktop\\dev\\Tinix\\src\\Tinix.Context\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\ozan\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\ondero\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
