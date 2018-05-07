@@ -98,6 +98,7 @@ namespace Tinix
 					"default",
 					"{controller=Home}/{action=Index}/{id?}");
 			});
+
 		}
 	}
 }

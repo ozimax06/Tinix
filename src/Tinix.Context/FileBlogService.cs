@@ -120,13 +120,19 @@ namespace Tinix.Context
 
             BlogPostComment blogComment = new BlogPostComment
             {
+                ID = id.ToString(),
                 BlogPostID = BlogPostID,
                 Comment = comment
             };
 
-            List<BlogPostComment> blogComments =  GetCachedComments();
-            blogComments.Add(blogComment);
-            cache.Set(BLOG_COMMENTS, blogComments);
+            var posts = GetCachedPosts();
+
+            posts.Where(p=> p.ID == BlogPostID)
+                 .Select(p => { p.Comments.Add(blogComment); return p;} )
+                 .ToList();
+
+            Sort(ref posts);
+
                         
         }
 
@@ -250,28 +256,18 @@ namespace Tinix.Context
         public Task<BlogPost> GetPostById(string id)
         {
             List<BlogPost> posts = GetCachedPosts();
-            List<BlogPostComment> comments= GetCachedComments();
-            posts = AssignCommentsToPosts(posts, comments);
-
             return Task.FromResult(posts.FirstOrDefault(post => post.ID == id));
-
         }
 
         public Task<List<BlogPost>> GetPosts()
         {
             List<BlogPost> posts = GetCachedPosts();
-            List<BlogPostComment> comments= GetCachedComments();
-            posts = AssignCommentsToPosts(posts, comments);
-
             return Task.FromResult(posts);
         }
 
         public Task<List<BlogPost>> GetPosts(int count, int skip = 0)
         {
             List<BlogPost> posts = GetCachedPosts();
-            List<BlogPostComment> comments= GetCachedComments();
-            posts = AssignCommentsToPosts(posts, comments);
-
             return Task.FromResult(posts.Skip(skip).Take(count).ToList());
         }
 
@@ -361,11 +357,11 @@ namespace Tinix.Context
                 comments.Add(comment);
             }
 
+            posts = AssignCommentsToPosts(posts, comments);
+
             Sort(ref posts);
 
             cache.Set(BLOG_POSTS, posts);
-            cache.Set(BLOG_COMMENTS, comments);
-
             
 
         }
