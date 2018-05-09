@@ -35,8 +35,8 @@ namespace Tinix.Context
         {
 
             List<BlogPost> posts = GetCachedPosts();
-            List<BlogPostComment> comments = GetCachedComments();
-            comments = comments.Where(c => c.BlogPostID == id).ToList();
+      
+            //comments = comments.Where(c => c.BlogPostID == id).ToList();
 
             BlogPost blogPost = posts.FirstOrDefault(post => post.ID == id);
 
@@ -68,10 +68,10 @@ namespace Tinix.Context
                 log.LogError(ex, ex.Message);
             }
             //Remove associated comments
-            foreach(var comment in comments)
+            /*foreach(var comment in comments)
             {
                 DeleteComment(comment.ID);
-            }
+            }*/
         }
 
         public void DeleteComment(string id)
@@ -83,13 +83,13 @@ namespace Tinix.Context
                 if (File.Exists(filePath))
                 {
                      File.Delete(filePath);
-                     List<BlogPostComment> blogComments =  GetCachedComments();
-                     BlogPostComment blogComment = blogComments.FirstOrDefault(b => b.ID == id);
-                     if(blogComment != null)
-                     {
-                        blogComments.Remove(blogComment);
-                        cache.Set(BLOG_COMMENTS, blogComments);
-                     }
+                     var posts = GetCachedPosts();
+
+                     //select the matching comment from the posts
+                     //apperantly not working
+                     posts.RemoveAll(p => p.Comments.Any(c => c.ID ==id));
+
+                     Sort(ref posts);
 
                 }
                 else
@@ -157,25 +157,6 @@ namespace Tinix.Context
                                 new XElement("numberOfLikes", "0")
                             ));
 
-            //XElement categories = doc.XPathSelectElement("post/categories");
-            //foreach (string category in post.Categories)
-            //{
-            //    categories.Add(new XElement("category", category));
-            //}
-
-            //XElement comments = doc.XPathSelectElement("post/comments");
-            //foreach (Comment comment in post.Comments)
-            //{
-            //    comments.Add(
-            //        new XElement("comment",
-            //            new XElement("author", comment.Author),
-            //            new XElement("email", comment.Email),
-            //            new XElement("date", comment.PubDate.ToString("yyyy-MM-dd HH:m:ss")),
-            //            new XElement("content", comment.Content),
-            //            new XAttribute("isAdmin", comment.IsAdmin),
-            //            new XAttribute("id", comment.ID)
-            //        ));
-            //}
 
             using (FileStream fs = new FileStream(ApplicationContext.PostsFolder + @"\" + id + ".xml", FileMode.Create, FileAccess.ReadWrite))
             {
@@ -287,20 +268,6 @@ namespace Tinix.Context
             return posts;
         }
 
-        private List<BlogPostComment> GetCachedComments()
-        {
-            List<BlogPostComment> comments;
-
-            if (cache.TryGetValue(BLOG_COMMENTS, out comments))
-            {
-               return comments;
-            }
-
-            LoadFromDisk();
-            cache.TryGetValue(BLOG_COMMENTS, out comments);
-
-            return comments;
-        }
 
         private List<BlogPost> AssignCommentsToPosts(List<BlogPost> posts, List<BlogPostComment> comments)      
         {
