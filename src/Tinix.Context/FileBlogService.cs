@@ -35,9 +35,7 @@ namespace Tinix.Context
         {
 
             List<BlogPost> posts = GetCachedPosts();
-      
-            //comments = comments.Where(c => c.BlogPostID == id).ToList();
-
+                 
             BlogPost blogPost = posts.FirstOrDefault(post => post.ID == id);
 
             if (blogPost == null)
@@ -54,9 +52,14 @@ namespace Tinix.Context
                 {
                     File.Delete(filePath);
 
-                    posts.Remove(blogPost);
+                    foreach(var comment in blogPost.Comments.ToList())
+                    {
+                        DeleteComment(comment.ID);
+                    }
 
+                    posts.Remove(blogPost);
                     Sort(ref posts);
+                    cache.Set(BLOG_POSTS, posts);
                 }
                 else
                 {
@@ -67,11 +70,6 @@ namespace Tinix.Context
             {
                 log.LogError(ex, ex.Message);
             }
-            //Remove associated comments
-            /*foreach(var comment in comments)
-            {
-                DeleteComment(comment.ID);
-            }*/
         }
 
         public void DeleteComment(string id)
@@ -82,14 +80,15 @@ namespace Tinix.Context
             {
                 if (File.Exists(filePath))
                 {
-                     File.Delete(filePath);
-                     var posts = GetCachedPosts();
+                    File.Delete(filePath);
+                    var posts = GetCachedPosts();
 
-                     //select the matching comment from the posts
-                     //apperantly not working
-                     posts.RemoveAll(p => p.Comments.Any(c => c.ID ==id));
+                    posts.Where( p=>  p.Comments.Any(c => c.ID ==id))
+                    .Select(p => { p.Comments.RemoveAll(c => c.ID == id); return p;} )
+                    .ToList();
 
-                     Sort(ref posts);
+                    Sort(ref posts);
+                    cache.Set(BLOG_POSTS, posts);
 
                 }
                 else
@@ -132,6 +131,7 @@ namespace Tinix.Context
                  .ToList();
 
             Sort(ref posts);
+            cache.Set(BLOG_POSTS, posts);
 
                         
         }

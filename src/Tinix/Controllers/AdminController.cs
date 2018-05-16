@@ -107,7 +107,6 @@ namespace Tinix.Controllers
             foreach (var blog in blogs.ToList())
             {
                 blogService.Delete(blog.ID);
-                if(true){}
             }
 
             return RedirectToAction("Posts", "Admin");

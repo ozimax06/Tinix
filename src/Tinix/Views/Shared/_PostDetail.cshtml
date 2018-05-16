@@ -19,19 +19,23 @@
         </div>
         <div class="col-sm-1">
             <i class="fa fa-comment" aria-hidden="true"></i> 
-            <span class="glyphicon glyphicon-comment">(@Html.Raw(@Model.Comments.Count))</span>         
+            <span class="glyphicon glyphicon-comment">(@Html.Raw(@Model.Comments == null? 0 :@Model.Comments.Count))</span>         
         </div> 
         </div>    
     </div>
     <div class="col-12 postContainer">
          <span>Comments</span>
         <br>
-        <ul>    
-            @foreach (var comment in Model.Comments)
+        <ul>  
+            @if (@Model.Comments != null)
             {
-                // cut for brevity, need to add back more code from original
-                <li>@comment.Comment</li>
-            }
+                @foreach (var comment in Model.Comments)
+                {
+                    // cut for brevity, need to add back more code from original
+                    <li>@comment.Comment</li>
+                }
+            }  
+          
         </ul> 
     </div>
 </div>
