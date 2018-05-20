@@ -85,7 +85,7 @@ namespace Tinix.Controllers
 
 
         [Authorize, HttpPost]
-        public ActionResult Delete(string postId)
+        public async Task<IActionResult> Delete(string postId)
         {
             try
             {
@@ -114,7 +114,7 @@ namespace Tinix.Controllers
 
 
         [Authorize, HttpPost]
-        public ActionResult DeleteComment(string commentId, string postId)
+        public async Task<IActionResult> DeleteComment(string commentId, string postId)
         {
 
             blogService.DeleteComment(commentId);

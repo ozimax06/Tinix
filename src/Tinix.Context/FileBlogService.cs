@@ -28,7 +28,7 @@ namespace Tinix.Context
             this.log = log;
         }
 
-        public void Delete(string id)
+        public async Task Delete(string id)
         {
 
             List<BlogPost> posts = GetCachedPosts();
@@ -47,7 +47,11 @@ namespace Tinix.Context
             {
                 if (File.Exists(filePath))
                 {
-                    File.Delete(filePath);
+                     await Task.Run(() => { File.Delete(filePath);} )
+                              .ContinueWith
+                              (t => 
+                              Console.WriteLine("done.")                            
+                              );
 
                     foreach(var comment in blogPost.Comments.ToList())
                     {
@@ -69,7 +73,7 @@ namespace Tinix.Context
             }
         }
 
-        public void DeleteComment(string id)
+        public async Task DeleteComment(string id)
         {
             string filePath = ApplicationContext.CommentsFolder + @"\" + id + ".xml";
 
@@ -77,7 +81,12 @@ namespace Tinix.Context
             {
                 if (File.Exists(filePath))
                 {
-                    File.Delete(filePath);
+                    await Task.Run(() => { File.Delete(filePath);} )
+                              .ContinueWith
+                              (t => 
+                              Console.WriteLine("done.")                            
+                              );
+            
                     var posts = GetCachedPosts();
 
                     posts.Where( p=>  p.Comments.Any(c => c.ID ==id))
