@@ -17,10 +17,7 @@ namespace Tinix.Context
     {
         
         private const string BLOG_POSTS = "blog_cache";
-        private const string BLOG_COMMENTS = "comment_cache";
-
         private IMemoryCache cache;
-
         private ILogger<FileBlogService> log;
 
 
@@ -175,11 +172,12 @@ namespace Tinix.Context
             post.IsPublished = true;
             post.ID = id;
             post.NumberOfLikes = 0;
+            post.Content = content;
+            post.Comments = new List<BlogPostComment>();
 
             posts.Add(post);
-
-
             Sort(ref posts);
+            cache.Set(BLOG_POSTS, posts);
         }
 
          public async Task EditPost(string id, string postContent, string title)
