@@ -11,9 +11,9 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/Tinix/bin/Debug/netcoreapp2.0/Tinix.dll",
+            "program": "${workspaceRoot}/src/Tinix/bin/Debug/netcoreapp2.0/Tinix.dll",
             "args": [],
-            "cwd": "${workspaceRoot}/Tinix",
+            "cwd": "${workspaceRoot}/src/Tinix",
             "stopAtEntry": false,
             "launchBrowser": {
                 "enabled": true,
