@@ -143,7 +143,7 @@ namespace Tinix.Context
         }
 
 
-        public async Task SavePost(string content, string title)
+        public async Task SavePost(string content, string title, bool publish)
         {
 
             string id = Guid.NewGuid().ToString();
@@ -158,7 +158,7 @@ namespace Tinix.Context
                                 new XElement("lastModified", now.ToString("yyyy-MM-dd HH:mm:ss")),
                                 new XElement("excerpt", string.Empty),
                                 new XElement("content", content),
-                                new XElement("ispublished", true),
+                                new XElement("ispublished", publish),
                                 new XElement("categories", string.Empty),
                                 new XElement("numberOfLikes", "0")
                             ));
@@ -189,13 +189,14 @@ namespace Tinix.Context
             cache.Set(BLOG_POSTS, posts);
         }
 
-         public async Task EditPost(string id, string postContent, string title)
+         public async Task EditPost(string id, string postContent, string title, bool publish)
          {
             var now =  DateTime.UtcNow;
             XElement doc = XElement.Load(ApplicationContext.PostsFolder + "/" + id+ ".xml");
             doc.Element("content").Value = postContent;
             doc.Element("title").Value = title;
             doc.Element("lastModified").Value = now.ToString("yyyy-MM-dd HH:mm:ss");
+            doc.Element("ispublished").Value = publish;
 
             using (FileStream fs = new FileStream(ApplicationContext.PostsFolder + @"\" + id + ".xml", FileMode.Create, FileAccess.ReadWrite))
             {

@@ -8,7 +8,7 @@ namespace Tinix.Context
 
         Task SavePost(string postContent, string title);
         
-        Task EditPost(string id, string postContent, string title);
+        Task EditPost(string id, string postContent, string title, bool publish);
 
         int GetTotalPostsCount();
 
