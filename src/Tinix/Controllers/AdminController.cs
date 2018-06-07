@@ -150,7 +150,7 @@ namespace Tinix.Controllers
                 return RedirectToAction("EditPost", model);
             }
 
-            await blogService.EditPost(model.BlogPostID, model.Content, model.Title);
+            await blogService.EditPost(model.BlogPostID, model.Content, model.Title, true);
             return RedirectToAction("Posts", "Admin");
 
         }
@@ -175,7 +175,7 @@ namespace Tinix.Controllers
 
             try
             {
-                await blogService.SavePost(model.Content, model.Title);
+                await blogService.SavePost(model.Content, model.Title, false);
             }
             catch(Exception ex)
             {

@@ -6,7 +6,7 @@ namespace Tinix.Context
     public interface IBlog
     {
 
-        Task SavePost(string postContent, string title);
+        Task SavePost(string postContent, string title, bool publish);
         
         Task EditPost(string id, string postContent, string title, bool publish);
 

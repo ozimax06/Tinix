@@ -178,7 +178,7 @@ namespace Tinix.Context
             post.PubDate = now;
             post.LastModified = now;
             post.Excerpt = string.Empty;
-            post.IsPublished = true;
+            post.IsPublished = publish;
             post.ID = id;
             post.NumberOfLikes = 0;
             post.Content = content;
@@ -196,7 +196,7 @@ namespace Tinix.Context
             doc.Element("content").Value = postContent;
             doc.Element("title").Value = title;
             doc.Element("lastModified").Value = now.ToString("yyyy-MM-dd HH:mm:ss");
-            doc.Element("ispublished").Value = publish;
+            doc.Element("ispublished").Value = publish.ToString();
 
             using (FileStream fs = new FileStream(ApplicationContext.PostsFolder + @"\" + id + ".xml", FileMode.Create, FileAccess.ReadWrite))
             {
@@ -206,7 +206,7 @@ namespace Tinix.Context
             //edit the post from the list and reset the cache
             List<BlogPost> posts = GetCachedPosts();
             posts.Where(p=> p.ID == id)
-                 .Select(p => { p.Content = postContent; p.Title = title; p.LastModified = now; return p;} )
+                 .Select(p => { p.Content = postContent; p.Title = title; p.LastModified = now; p.IsPublished = publish; return p;} )
                  .ToList();
 
             Sort(ref posts);
