@@ -175,7 +175,7 @@ namespace Tinix.Controllers
 
             try
             {
-                await blogService.SavePost(model.Content, model.Title, false);
+                await blogService.SavePost(model.Content, model.Title, model.IsPublished);
             }
             catch(Exception ex)
             {

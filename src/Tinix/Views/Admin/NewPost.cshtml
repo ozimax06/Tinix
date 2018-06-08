@@ -52,7 +52,7 @@
                 </div>  
                 <div class="col-4">
                     <label class="switch">
-                        <input id="isPublished" type="checkbox">
+                        @Html.CheckBoxFor(model => model.IsPublished, new { @id = "IsPublished" })
                         <span class="slider round"></span>
                     </label>
                 </div>               
