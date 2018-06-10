@@ -51,10 +51,13 @@
                 <div class="col-1">
                     <input type="submit" value="Save" id="buttonPost" class="btn btn-primary" />
                 </div>  
-                <div class="col-4">
+                 <div class="col-4">
                     <label class="switch">
                         @Html.CheckBoxFor(model => model.IsPublished, new { @id = "IsPublished" })
-                        <span class="slider round"></span>
+                        <div class="slider round">
+                            <span class="on">Publish</span>
+                            <span class="off">Not Publish</span>
+                        </div>
                     </label>
                 </div>               
             </div>

@@ -119,7 +119,7 @@ namespace Tinix.Controllers
                 skipItems = 0;
             }
 
-            List<BlogPost> posts = await blog.GetPosts(ApplicationContext.PostsPerPage, skipItems);
+            List<BlogPost> posts = await blog.GetPublishedPosts(ApplicationContext.PostsPerPage, skipItems);
 
             int total = blog.GetTotalPostsCount();
 

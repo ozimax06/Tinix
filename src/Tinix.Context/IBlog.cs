@@ -12,6 +12,10 @@ namespace Tinix.Context
 
         int GetTotalPostsCount();
 
+        Task<List<BlogPost>> GetPublishedPosts();
+
+        Task<List<BlogPost>> GetPublishedPosts(int count, int skip = 0);
+
         Task<List<BlogPost>> GetPosts();
 
         Task<List<BlogPost>> GetPosts(int count, int skip = 0);

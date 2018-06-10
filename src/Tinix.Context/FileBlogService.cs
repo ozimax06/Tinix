@@ -248,6 +248,20 @@ namespace Tinix.Context
             return Task.FromResult(posts.FirstOrDefault(post => post.ID == id));
         }
 
+        public Task<List<BlogPost>> GetPublishedPosts()
+        {
+            List<BlogPost> posts = GetCachedPosts();
+            posts = posts.Where(p => p.IsPublished == true).ToList();
+            return Task.FromResult(posts);
+        }
+
+        public Task<List<BlogPost>> GetPublishedPosts(int count, int skip = 0)
+        {
+            List<BlogPost> posts = GetCachedPosts();
+            posts = posts.Where(p => p.IsPublished == true).ToList();
+            return Task.FromResult(posts.Skip(skip).Take(count).ToList());
+        }
+
         public Task<List<BlogPost>> GetPosts()
         {
             List<BlogPost> posts = GetCachedPosts();
