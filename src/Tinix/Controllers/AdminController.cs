@@ -134,6 +134,7 @@ namespace Tinix.Controllers
                 viewModel.Title = post.Title;
                 viewModel.Content = post.Content;  
                 viewModel.Comments = post.Comments;
+                viewModel.IsPublished = post.IsPublished;
 
                 return View(viewModel);
    
@@ -150,7 +151,7 @@ namespace Tinix.Controllers
                 return RedirectToAction("EditPost", model);
             }
 
-            await blogService.EditPost(model.BlogPostID, model.Content, model.Title, true);
+            await blogService.EditPost(model.BlogPostID, model.Content, model.Title, model.IsPublished);
             return RedirectToAction("Posts", "Admin");
 
         }

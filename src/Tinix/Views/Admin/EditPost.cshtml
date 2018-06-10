@@ -47,8 +47,16 @@
             @Html.ValidationMessageFor(model => model.Content, string.Empty, new { @class = "text-danger" })
             <br/>
             <br />
-            <div class="text-center">
-                <input type="submit" value="Save" id="buttonPost" class="btn btn-primary" />
+             <div class="row">
+                <div class="col-1">
+                    <input type="submit" value="Save" id="buttonPost" class="btn btn-primary" />
+                </div>  
+                <div class="col-4">
+                    <label class="switch">
+                        @Html.CheckBoxFor(model => model.IsPublished, new { @id = "IsPublished" })
+                        <span class="slider round"></span>
+                    </label>
+                </div>               
             </div>
         </form>
         <h2>Comments:</h2>

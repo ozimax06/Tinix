@@ -1,0 +1,96 @@
+2018-06-10T16:09:10.1031909+01:00 0HLEESGDBMQAK:00000001 [ERR] An unhandled exception has occurred: Could not find a part of the path 'C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\wwwroot\Comments'. (8b7f41e0)
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\wwwroot\Comments'.
+   at System.IO.Win32FileSystemEnumerableIterator`1.HandleError(Int32 errorCode, String path)
+   at System.IO.Win32FileSystemEnumerableIterator`1.CommonInit()
+   at System.IO.Win32FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler)
+   at System.IO.Win32FileSystemEnumerableFactory.CreateFileNameIterator(String path, String originalUserPath, String searchPattern, Boolean includeFiles, Boolean includeDirs, SearchOption searchOption)
+   at System.IO.Win32FileSystem.EnumeratePaths(String fullPath, String searchPattern, SearchOption searchOption, SearchTarget searchTarget)
+   at System.IO.Directory.EnumerateFileSystemNames(String path, String searchPattern, SearchOption searchOption, Boolean includeFiles, Boolean includeDirs)
+   at System.IO.Directory.EnumerateFiles(String path, String searchPattern, SearchOption searchOption)
+   at Tinix.Context.FileBlogService.LoadFromDisk() in C:\Users\ozan\Desktop\projects\Tinix\src\Tinix.Context\FileBlogService.cs:line 320
+   at Tinix.Context.FileBlogService.GetCachedPosts() in C:\Users\ozan\Desktop\projects\Tinix\src\Tinix.Context\FileBlogService.cs:line 273
+   at Tinix.Context.FileBlogService.GetPosts(Int32 count, Int32 skip) in C:\Users\ozan\Desktop\projects\Tinix\src\Tinix.Context\FileBlogService.cs:line 259
+   at Tinix.Controllers.HomeController.<Index>d__6.MoveNext() in C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\Controllers\HomeController.cs:line 122
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeFilterPipelineAsync>d__17.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeAsync>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>d__6.MoveNext()
+2018-06-10T16:09:10.1031909+01:00 0HLEESGDBMQAJ:00000001 [ERR] An unhandled exception has occurred: Could not find a part of the path 'C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\wwwroot\Comments'. (8b7f41e0)
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\wwwroot\Comments'.
+   at System.IO.Win32FileSystemEnumerableIterator`1.HandleError(Int32 errorCode, String path)
+   at System.IO.Win32FileSystemEnumerableIterator`1.CommonInit()
+   at System.IO.Win32FileSystemEnumerableIterator`1..ctor(String path, String originalUserPath, String searchPattern, SearchOption searchOption, SearchResultHandler`1 resultHandler)
+   at System.IO.Win32FileSystemEnumerableFactory.CreateFileNameIterator(String path, String originalUserPath, String searchPattern, Boolean includeFiles, Boolean includeDirs, SearchOption searchOption)
+   at System.IO.Win32FileSystem.EnumeratePaths(String fullPath, String searchPattern, SearchOption searchOption, SearchTarget searchTarget)
+   at System.IO.Directory.EnumerateFileSystemNames(String path, String searchPattern, SearchOption searchOption, Boolean includeFiles, Boolean includeDirs)
+   at System.IO.Directory.EnumerateFiles(String path, String searchPattern, SearchOption searchOption)
+   at Tinix.Context.FileBlogService.LoadFromDisk() in C:\Users\ozan\Desktop\projects\Tinix\src\Tinix.Context\FileBlogService.cs:line 320
+   at Tinix.Context.FileBlogService.GetCachedPosts() in C:\Users\ozan\Desktop\projects\Tinix\src\Tinix.Context\FileBlogService.cs:line 273
+   at Tinix.Context.FileBlogService.GetPosts(Int32 count, Int32 skip) in C:\Users\ozan\Desktop\projects\Tinix\src\Tinix.Context\FileBlogService.cs:line 259
+   at Tinix.Controllers.HomeController.<Index>d__6.MoveNext() in C:\Users\ozan\Desktop\projects\Tinix\src\Tinix\Controllers\HomeController.cs:line 122
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeActionMethodAsync>d__12.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeNextActionFilterAsync>d__10.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.<InvokeInnerFilterAsync>d__14.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeNextResourceFilter>d__22.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeFilterPipelineAsync>d__17.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.<InvokeAsync>d__15.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.<Invoke>d__4.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.<Invoke>d__6.MoveNext()

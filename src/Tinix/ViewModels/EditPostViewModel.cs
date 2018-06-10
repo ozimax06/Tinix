@@ -34,5 +34,11 @@ namespace Tinix.Models
             get;
             set;
         }
+
+        public bool IsPublished
+        {
+            get;
+            set;
+        }
     }
 }
