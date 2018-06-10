@@ -55,7 +55,14 @@
                         </td>
                         <td>
                             @item.Title
-                        </td>
+                            @if (item.IsPublished == true)
+                            {
+                               <span>(Published)</span>
+                            }
+                            else
+                            {
+                                <span>(Not Published)</span>
+                            } 
                         <td>
                             @item.PubDate.ToShortDateString()
                         </td>
